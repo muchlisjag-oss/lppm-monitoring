@@ -1,0 +1,155 @@
+:root {
+    --sidebar-width: 260px;
+    --navbar-height: 64px;
+    --primary-color: #0d6efd;
+    --sidebar-bg: #111827;
+    --sidebar-hover: #1f2937;
+    --body-bg: #f5f7fb;
+}
+
+body {
+    margin: 0;
+    background: var(--body-bg);
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.dashboard-navbar {
+    height: var(--navbar-height);
+    margin-left: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.dashboard-sidebar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1040;
+    background: var(--sidebar-bg);
+    color: #ffffff;
+    overflow-y: auto;
+}
+
+.sidebar-brand {
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.sidebar-brand small {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.65;
+}
+
+.sidebar-menu {
+    padding: 15px 12px;
+}
+
+.sidebar-section {
+    padding: 12px 12px 6px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #9ca3af;
+    font-weight: 600;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    color: #d1d5db;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background: var(--sidebar-hover);
+    color: #ffffff;
+}
+
+.sidebar-link.active {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.sidebar-link i {
+    width: 20px;
+    text-align: center;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.dashboard-main {
+    margin-left: var(--sidebar-width);
+    padding-top: var(--navbar-height);
+    min-height: 100vh;
+}
+
+.dashboard-content {
+    padding: 25px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.dashboard-card {
+    border: 0;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 991.98px) {
+
+    .dashboard-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+    }
+
+    .dashboard-sidebar.show {
+        transform: translateX(0);
+    }
+
+    .dashboard-navbar {
+        margin-left: 0;
+    }
+
+    .dashboard-main {
+        margin-left: 0;
+    }
+
+    .dashboard-content {
+        padding: 18px;
+    }
+}

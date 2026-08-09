@@ -42,4 +42,12 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    public function dosen(): static
+    {
+        return $this->state(fn () => [
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+        ]);
+    }
 }
